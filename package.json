@@ -1,0 +1,48 @@
+{
+	"name": "code-challenge",
+	"version": "1.0.0",
+	"description": "Retrium developer code challenge",
+	"scripts": {
+		"start": "node --require @babel/register src/server.js",
+		"lint": "eslint -c .eslintrc.js src"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Retrium/dev-candidate/tree/master/code-challenge"
+	},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Retrium/dev-candidate/issues"
+	},
+	"homepage": "https://github.com/Retrium/dev-candidate/blob/master/code-challenge/readme.md",
+	"devDependencies": {
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.5",
+		"@babel/node": "^7.4.5",
+		"@babel/plugin-transform-runtime": "^7.4.4",
+		"@babel/preset-env": "^7.4.5",
+		"@babel/preset-react": "^7.0.0",
+		"@babel/runtime": "^7.4.5",
+		"babel-eslint": "^10.0.1",
+		"babel-loader": "^8.0.6",
+		"eslint": "^5.16.0",
+		"eslint-plugin-flowtype": "^3.9.1",
+		"eslint-plugin-import": "^2.17.3",
+		"eslint-plugin-react": "^7.13.0",
+		"eslint-plugin-react-hooks": "^1.6.0",
+		"prettier": "^1.18.2",
+		"webpack": "^4.32.2",
+		"webpack-cli": "^3.3.2",
+		"webpack-dev-middleware": "^3.7.0"
+	},
+	"dependencies": {
+		"@retrium/react-sharedb": "^0.1.0-alpha.3",
+		"@teamwork/websocket-json-stream": "^2.0.0",
+		"express": "^4.17.1",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"sharedb": "^1.0.0-beta.23",
+		"ws": "^7.0.0"
+	}
+}
