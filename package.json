@@ -40,6 +40,7 @@
 		"@retrium/react-sharedb": "^0.1.0-alpha.3",
 		"@teamwork/websocket-json-stream": "^2.0.0",
 		"express": "^4.17.1",
+		"prop-types": "^15.7.2",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"sharedb": "^1.0.0-beta.23",
