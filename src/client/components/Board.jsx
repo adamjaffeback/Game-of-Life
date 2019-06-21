@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Cell from './Cell';
 
-class Board extends React.Component {
-  render() {
+export default function Board({cells}) {
+    const doCellClick = () => {
+      console.log('clicked');
+    };
     const elements = [];
-    this.props.cells.forEach(cell => {
-      elements.push(<Cell key={cell.location} {...cell} />);
+    cells.forEach(cell => {
+      elements.push(<Cell key={cell.location} handleCellClick={doCellClick} {...cell} />);
     });
 
     return (
@@ -14,7 +16,6 @@ class Board extends React.Component {
         {elements}
       </div>
     );
-  }
 }
 
 Board.propTypes = {
@@ -23,6 +24,4 @@ Board.propTypes = {
 
 Board.defaultProps = {
   cells: new Set(),
-}
-
-export default Board;
+};
