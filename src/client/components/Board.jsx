@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Cell from './Cell';
 
 export default function Board({cells}) {
-    const doCellClick = (location) => {
-      console.log('clicked location', location);
+    const doCellClick = (ev) => {
+      console.log('clicked location', ev.currentTarget.getBoundingClientRect());
     };
     const elements = [];
     cells.forEach(cell => {
