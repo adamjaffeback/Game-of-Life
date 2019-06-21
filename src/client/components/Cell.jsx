@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Cell({handleCellClick}) {
+export default function Cell({handleCellClick, location}) {
   const style = {
     height: '15px',
     width: '15px',
@@ -11,7 +11,7 @@ export default function Cell({handleCellClick}) {
     display: 'inline-block',
   };
 
-	return <div onClick={handleCellClick} style={style} />;
+	return <div onClick={handleCellClick.bind(this, location)} style={style} />;
 }
 
 Cell.propTypes = {
