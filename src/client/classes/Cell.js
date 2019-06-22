@@ -1,8 +1,8 @@
-const Cell = function (cellNumber, living = false) {
+const Cell = function (cellNumber, living = false, location = null) {
   this.identity = cellNumber;
   this.living = living;
   this.shouldToggle = false;
-  this.location = null;
+  this.location = location;
 }
 
 Cell.prototype.click = function () {
@@ -10,6 +10,7 @@ Cell.prototype.click = function () {
 };
 
 Cell.prototype.setLocation = function (bounds) {
+  console.log('bounds',bounds);
   this.location = bounds;
 };
 
