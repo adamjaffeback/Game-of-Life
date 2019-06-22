@@ -4,7 +4,8 @@
 	"description": "Retrium developer code challenge",
 	"scripts": {
 		"start": "node --require @babel/register src/server.js",
-		"lint": "eslint -c .eslintrc.js src"
+		"lint": "eslint -c .eslintrc.js src",
+		"test": "ava"
 	},
 	"repository": {
 		"type": "git",
@@ -24,6 +25,7 @@
 		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-react": "^7.0.0",
 		"@babel/runtime": "^7.4.5",
+		"ava": "^2.1.0",
 		"babel-eslint": "^10.0.1",
 		"babel-loader": "^8.0.6",
 		"eslint": "^5.16.0",
@@ -45,5 +47,10 @@
 		"react-dom": "^16.8.6",
 		"sharedb": "^1.0.0-beta.23",
 		"ws": "^7.0.0"
+	},
+	"ava": {
+		"require": [
+			"esm"
+		]
 	}
 }
