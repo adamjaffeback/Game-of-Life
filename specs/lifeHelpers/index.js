@@ -2,6 +2,7 @@ import test from 'ava';
 import generate from '../../src/client/lifeHelpers';
 import Cell from '../../src/client/classes/Cell';
 import stillLifes from './stillLifes';
+import oscillators from './oscillators';
 
 export default () => {
   test('should be a function', t => {
@@ -14,6 +15,6 @@ export default () => {
     t.is(value, true);
   });
 
-  // still lifes
   stillLifes();
+  oscillators();
 };
