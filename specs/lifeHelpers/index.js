@@ -1,8 +1,6 @@
 import test from 'ava';
 import generate from '../../src/client/lifeHelpers';
-import Cell from '../../src/client/classes/Cell';
-import stillLifes from './stillLifes';
-import oscillators from './oscillators';
+import patterns from './patterns';
 
 export default () => {
   test('should be a function', t => {
@@ -15,6 +13,5 @@ export default () => {
     t.is(value, true);
   });
 
-  stillLifes();
-  oscillators();
+  patterns();
 };

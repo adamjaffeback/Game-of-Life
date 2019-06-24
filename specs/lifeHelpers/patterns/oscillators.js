@@ -1,6 +1,6 @@
 import test from 'ava';
-import generate from '../../src/client/lifeHelpers';
-import Cell from '../../src/client/classes/Cell';
+import generate from '../../../src/client/lifeHelpers';
+import Cell from '../../../src/client/classes/Cell';
 
 export default () => {
   let cells = [];
