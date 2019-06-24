@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, {useState, useReducer, useEffect} from 'react';
 import Board from '../components/Board';
 import Cell from '../classes/Cell';
 import gameReducer from '../state/reducers/gameReducer';
@@ -21,6 +21,10 @@ export default function Game() {
   const dispatchGenerate = () => dispatch(GameActions.generate());
   const startGeneration = () => updateInterval(setInterval(dispatchGenerate, 1000));
   const stopGeneration = () => updateInterval(clearInterval(interval));
+  // before container unmounts, clear the interval
+  useEffect(() => {
+    return () => stopGeneration();
+  }, []);
 
 	return <div>
     <button onClick={startGeneration}>Start</button>
