@@ -21,6 +21,8 @@ function determineChanges(cells) {
         cell.shouldToggle = true;
       }
     }
+
+    return cell;
   });
 }
 
