@@ -1,7 +1,7 @@
 import React, {useState, useReducer} from 'react';
 import Board from '../components/Board';
 import Cell from '../classes/Cell';
-import gameReducer from '../reducers/gameReducer';
+import gameReducer from '../state/reducers/gameReducer';
 
 export default function Game() {
   const CELL_SURFACE_AREA = 225;
