@@ -5,8 +5,7 @@ function determineChanges(cells) {
     // for every cell, count alive neighbors
     const livingNeighbors = getNeighbors(cell, cells)
                             .reduce((acc, neighbor) => {
-                              return neighbor.living ?
-                                acc + 1 : acc;
+                              return neighbor.living ? acc + 1 : acc;
                             }, 0);
 
     // if cell is alive
@@ -27,6 +26,8 @@ function determineChanges(cells) {
 }
 
 export default function generate (cells = []) {
-  // evaluate dial to determine who lives, dies, and reproduces
-  return determineChanges(cells);
+  // evaluate cells to determine who lives, dies, and reproduces,
+  return determineChanges(cells)
+  // then toggle those cells' living status
+  .map(cell => cell.shouldToggle ? cell.toggleLiving() : cell);
 }
