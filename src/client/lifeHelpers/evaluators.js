@@ -1,6 +1,6 @@
 import countLivingNeighbors, {getNeighbors} from './neighbors';
 
-function makeSetOfCellsWhichShouldToggle (cells) {
+export function makeSetOfCellsWhichShouldToggle (cells) {
   return new Set(
     cells.filter(cell => cell.shouldToggle)
     .map(cell => cell.identity)
