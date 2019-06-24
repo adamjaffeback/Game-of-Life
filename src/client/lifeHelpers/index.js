@@ -1,4 +1,3 @@
-import countLivingNeighbors, {getNeighbors} from './neighbors';
 import {evaluateLivingCells, evaluateDeadCells} from './evaluators';
 
 function determineChanges (cells) {
