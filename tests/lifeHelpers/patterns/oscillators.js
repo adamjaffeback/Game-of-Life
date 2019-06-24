@@ -38,36 +38,34 @@ export function beacon () {
   return {bounds: allBounds, topLeftBlockBounds, bottomRightBlockBounds, cells};
 }
 
-export default () => {
-  test('should spin a two-period blinker', t => {
-    const blinker = twoPeriodBlinker();
-    const {bounds, cells} = blinker;
-    let nextGeneration = generate(cells);
-    t.deepEqual(nextGeneration, [
-      new Cell(0, false, bounds[0]), // top
-      new Cell(1, true, bounds[1]), // middle
-      new Cell(2, false, bounds[2]), // bottom
-      new Cell(3, true, bounds[3]), // left
-      new Cell(4, true, bounds[4]), // right
-    ]);
-  });
+test('should spin a two-period blinker', t => {
+  const blinker = twoPeriodBlinker();
+  const {bounds, cells} = blinker;
+  let nextGeneration = generate(cells);
+  t.deepEqual(nextGeneration, [
+    new Cell(0, false, bounds[0]), // top
+    new Cell(1, true, bounds[1]), // middle
+    new Cell(2, false, bounds[2]), // bottom
+    new Cell(3, true, bounds[3]), // left
+    new Cell(4, true, bounds[4]), // right
+  ]);
+});
 
-  test('should blink a beacon', t => {
-    const testBeacon = beacon();
-    const {cells, bounds, topLeftBlockBounds, bottomRightBlockBounds} = testBeacon;
-    const expectation = bounds.map((bound, index) => {
-      let alive = true;
-      if (bound === topLeftBlockBounds[0] ||
-          bound === bottomRightBlockBounds[0]) {
-        alive = false;
-      }
+test('should blink a beacon', t => {
+  const testBeacon = beacon();
+  const {cells, bounds, topLeftBlockBounds, bottomRightBlockBounds} = testBeacon;
+  const expectation = bounds.map((bound, index) => {
+    let alive = true;
+    if (bound === topLeftBlockBounds[0] ||
+        bound === bottomRightBlockBounds[0]) {
+      alive = false;
+    }
 
-      return new Cell(index, alive, bound);
-    });
-    let nextGeneration = generate(cells);
-    // blink off
-    t.deepEqual(nextGeneration, expectation);
-    // blink on, should go back to original
-    t.deepEqual(generate(nextGeneration), cells);
+    return new Cell(index, alive, bound);
   });
-};
+  let nextGeneration = generate(cells);
+  // blink off
+  t.deepEqual(nextGeneration, expectation);
+  // blink on, should go back to original
+  t.deepEqual(generate(nextGeneration), cells);
+});

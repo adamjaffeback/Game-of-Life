@@ -52,22 +52,20 @@ export function beehive () {
   return {cells, bounds};
 }
 
-export default () => {
-  test('should keep a block alive', t => {
-    const {cells} = block(false);
-    let nextGeneration = generate(cells);
-    t.deepEqual(nextGeneration, cells);
-  });
+test('should keep a block alive', t => {
+  const {cells} = block(false);
+  let nextGeneration = generate(cells);
+  t.deepEqual(nextGeneration, cells);
+});
 
-  test('should keep a block alive with spaces', t => {
-    const {cells} = block(true);
-    let nextGeneration = generate(cells);
-    t.deepEqual(nextGeneration, cells);
-  });
+test('should keep a block alive with spaces', t => {
+  const {cells} = block(true);
+  let nextGeneration = generate(cells);
+  t.deepEqual(nextGeneration, cells);
+});
 
-  test('should keep a beehive alive', t => {
-    const {cells} = beehive();
-    let nextGeneration = generate(cells);
-    t.deepEqual(nextGeneration, cells);
-  });
-};
+test('should keep a beehive alive', t => {
+  const {cells} = beehive();
+  let nextGeneration = generate(cells);
+  t.deepEqual(nextGeneration, cells);
+});
