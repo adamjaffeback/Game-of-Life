@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useState, useReducer} from 'react';
 import Board from '../components/Board';
 import Cell from '../classes/Cell';
 import generate from '../lifeHelpers';
@@ -32,6 +32,7 @@ export default function Game() {
     }
   }
   const [state, dispatch] = useReducer(reducer, initialCells);
+  const [interval, updateInterval] = useState();
 
   const handleCellClick = identity => {
     const message = {
@@ -42,8 +43,14 @@ export default function Game() {
     dispatch(message);
   };
 
+  const dispatchGenerate = () => dispatch({type: 'GENERATE'});
+  const startGeneration = () => updateInterval(setInterval(dispatchGenerate, 1000));
+  const stopGeneration = () => updateInterval(clearInterval(interval));
+
 	return <div>
-    <button onClick={() => dispatch({type: 'GENERATE'})}>Step</button>
+    <button onClick={startGeneration}>Start</button>
+    <button onClick={dispatchGenerate}>Step</button>
+    <button onClick={stopGeneration}>Stop</button>
     <Board cells={state} onCellClick={handleCellClick}/>
 	</div>;
 }
