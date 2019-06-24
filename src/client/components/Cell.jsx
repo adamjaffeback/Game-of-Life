@@ -13,6 +13,7 @@ function Cell({identity, isLiving, onRender, handleCellClick}) {
     display: 'inline-block',
   };
 
+  // only rerender when needed
   useEffect(() => onRender(cellRef.current.getBoundingClientRect()));
 	return <div ref={cellRef} onClick={handleCellClick} style={style} />;
 }
