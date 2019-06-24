@@ -1,5 +1,5 @@
 export function isNeighborCell(home, potentialNeighbor) {
-  if (home.identity === neighbor.identity) {
+  if (home.identity === potentialNeighbor.identity) {
     return false;
   } else {
     const hLoc = home.location;
