@@ -24,6 +24,16 @@ Click on a couple of cells, anywhere. They should highlight. Click the Step or S
 
 Take a look at some of the [patterns](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns) and draw them in the application.
 
+### Testing
+
+This repo uses [Ava](https://github.com/avajs/ava) and is my first experiment with the module. Specs are located in `tests/` and can be run with `npm test` from the root directory.
+
+Ava differs from mocha and Jasmine (and most other frameworks) by not having a concept of "describe" blocks to make suites of tests. The framework prefers users break the test suites into individual files.
+
+I find myself missing the simple readability of an "it" statement; "it should return an array", for example. In Ava, the syntax just doesn't read as cleanly to me, "test('function should return an array')," with, "test('function should...," being repeated for all the tests in the file.
+
+The error diffing, which they call ["magic assert"](https://github.com/avajs/ava#magic-assert) makes it a lot easier to understand errors. It's also nice to need no additional configuration for transpiling, as Ava uses Babel 7 out of the box.
+
 ## Conway's Game of Life
 
 John Conway was interested in a problem presented in the 1940s by renowned mathematician John von Neumann, who tried to find a hypothetical machine that could build copies of itself. He succeeded when he found a mathematical model for such a machine with very complicated rules on a rectangular grid. The Game of Life emerged in 1970 as Conway's successful attempt to simplify von Neumann's ideas.
