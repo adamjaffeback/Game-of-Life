@@ -1,6 +1,7 @@
 import test from 'ava';
 import generate from '../../src/client/lifeHelpers';
 import patterns from './patterns';
+import neighbors from './neighbors';
 
 export default () => {
   test('should be a function', t => {
@@ -14,4 +15,5 @@ export default () => {
   });
 
   patterns();
+  neighbors();
 };
