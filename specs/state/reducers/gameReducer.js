@@ -4,8 +4,6 @@ import * as GameActions from '../../../src/client/state/actions/gameActions';
 import Cell from '../../../src/client/classes/Cell';
 
 export default () => {
-  let cells;
-
   test.before(t => {
      t.context.cells = [new Cell(0, false), new Cell(1, false)];
   });
