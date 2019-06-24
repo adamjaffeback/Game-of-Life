@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react';
 import Board from '../components/Board';
 import Cell from '../classes/Cell';
+import generate from '../lifeHelpers';
 
 export default function Game() {
   const CELL_SURFACE_AREA = 225;
@@ -24,6 +25,8 @@ export default function Game() {
 
           return cell;
         });
+      case 'GENERATE':
+        return generate(state);
       default:
         throw new Error();
     }
@@ -40,6 +43,7 @@ export default function Game() {
   };
 
 	return <div>
+    <button onClick={() => dispatch({type: 'GENERATE'})}>Step</button>
     <Board cells={state} onCellClick={handleCellClick}/>
 	</div>;
 }
