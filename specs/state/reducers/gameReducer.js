@@ -2,7 +2,6 @@ import test from 'ava'
 import gameReducer from '../../../src/client/state/reducers/gameReducer';
 import * as GameActions from '../../../src/client/state/actions/gameActions';
 import Cell from '../../../src/client/classes/Cell';
-import generate from '../../../src/client/lifeHelpers';
 
 export default () => {
   let cells;
