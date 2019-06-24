@@ -1,4 +1,4 @@
-import getNeighbors from './neighbors';
+import countLivingNeighbors, {getNeighbors} from './neighbors';
 
 function determineChanges (cells) {
   const livingCellSet = evaluateLivingCells(cells);
@@ -26,12 +26,7 @@ function evaluateLivingCells (cells) {
                              // get living cells
   const checkedLivingCells = cells.filter(cell => cell.living)
   .map(cell => {
-                            // get their neighbors
-    const livingNeighbors = getNeighbors(cell, cells)
-                            // count which of those neighbors are living
-                            .reduce((acc, neighbor) => {
-                              return neighbor.living ? acc + 1 : acc;
-                            }, 0);
+    const livingNeighbors = countLivingNeighbors(cell, cells)
 
     // if less than 2 live neighbors (underpop)
     // or more than 3 live neighbors (overpop)
@@ -54,10 +49,7 @@ function evaluateDeadCells (cells) {
   .filter(cell => !cell.living)
   // for every dead neighbor
   .map(cell => {
-    const livingNeighbors = getNeighbors(cell, cells)
-                            .reduce((acc, neighbor) => {
-                              return neighbor.living ? acc + 1 : acc;
-                            }, 0);
+    const livingNeighbors = countLivingNeighbors(cell, cells);
 
     // has 3 live neighbors (repro)
     if (livingNeighbors === 3) {
