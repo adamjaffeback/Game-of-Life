@@ -19,7 +19,7 @@ export default function Game() {
 
   const handleCellClick = identity => dispatch(GameActions.toggleLiving(identity));
   const dispatchGenerate = () => dispatch(GameActions.generate());
-  const startGeneration = () => updateInterval(setInterval(dispatchGenerate, 1000));
+  const startGeneration = () => updateInterval(setInterval(dispatchGenerate, 500));
   const stopGeneration = () => updateInterval(clearInterval(interval));
   // before container unmounts, clear the interval
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function Game() {
   }, []);
 
 	return <div>
-    <button onClick={startGeneration}>Start</button>
+    <button onClick={startGeneration} disabled={interval !== undefined}>Start</button>
     <button onClick={dispatchGenerate}>Step</button>
-    <button onClick={stopGeneration}>Stop</button>
+    <button onClick={stopGeneration} disabled={interval === undefined}>Stop</button>
     <Board cells={state} onCellClick={handleCellClick}/>
 	</div>;
 }
