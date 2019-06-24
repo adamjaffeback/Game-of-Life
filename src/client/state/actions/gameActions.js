@@ -1,3 +1,3 @@
-export const toggleLiving = identity => ({type: 'TOOGLE_LIVING', identity});
+export const toggleLiving = identity => ({type: 'TOGGLE_LIVING', identity});
 
 export const generate = () => ({type: 'GENERATE'});

@@ -3,7 +3,7 @@ import generate from '../../lifeHelpers';
 
 export default function reducer(state = [], action) {
   switch (action.type) {
-    case 'TOOGLE_LIVING':
+    case 'TOGGLE_LIVING':
       return state.map(cell => {
         if (cell.identity === action.identity) {
           const newCell = new Cell(cell.identity, cell.living);
