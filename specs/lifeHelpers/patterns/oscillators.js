@@ -6,7 +6,7 @@ export function twoPeriodBlinker () {
   const bounds = [
    {bottom: 44, height: 15, left: 72.5, right: 87.5, top: 29, width: 15, x: 72.5, y: 29},
    {bottom: 62, height: 15, left: 72.5, right: 87.5, top: 47, width: 15, x: 72.5, y: 47},
-   {bottom: 62, height: 15, left: 72.5, right: 87.5, top: 47, width: 15, x: 72.5, y: 47},
+   {bottom: 62, height: 15, left: 72.5, right: 87.5, top: 47, width: 15, x: 72.5, y: 65},
    {bottom: 62, height: 15, left: 56.5, right: 71.5, top: 47, width: 15, x: 56.5, y: 47},
    {bottom: 62, height: 15, left: 88.5, right: 103.5, top: 47, width: 15, x: 88.5, y: 47},
   ];
@@ -22,14 +22,14 @@ export function twoPeriodBlinker () {
 export function beacon () {
   const topLeftBlockBounds = [
     {bottom: 188, height: 15, left: 168.5, right: 183.5, top: 173, width: 15, x: 168.5, y: 173}, // will blink
-    {bottom: 170, height: 15, left: 152.5, right: 167.5, top: 155, width: 15, x: 152.5, y: 155},
     {bottom: 188, height: 15, left: 152.5, right: 167.5, top: 173, width: 15, x: 152.5, y: 173},
+    {bottom: 170, height: 15, left: 152.5, right: 167.5, top: 155, width: 15, x: 152.5, y: 155},
     {bottom: 170, height: 15, left: 168.5, right: 183.5, top: 155, width: 15, x: 168.5, y: 155},
   ];
   const bottomRightBlockBounds = [
-    {bottom: 206, height: 15, left: 168.5, right: 183.5, top: 191, width: 15, x: 168.5, y: 191}, // will blink
-    {bottom: 206, height: 15, left: 184.5, right: 199.5, top: 191, width: 15, x: 184.5, y: 191},
-    {bottom: 224, height: 15, left: 168.5, right: 183.5, top: 209, width: 15, x: 168.5, y: 209},
+    {bottom: 206, height: 15, left: 184.5, right: 199.5, top: 191, width: 15, x: 184.5, y: 191}, // will blink
+    {bottom: 206, height: 15, left: 168.5, right: 183.5, top: 191, width: 15, x: 200.5, y: 191},
+    {bottom: 224, height: 15, left: 168.5, right: 183.5, top: 209, width: 15, x: 200.5, y: 209},
     {bottom: 224, height: 15, left: 184.5, right: 199.5, top: 209, width: 15, x: 184.5, y: 209},
   ];
   const allBounds = topLeftBlockBounds.concat(bottomRightBlockBounds);
