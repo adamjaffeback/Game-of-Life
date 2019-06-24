@@ -23,7 +23,7 @@ function makeSetOfCellsWhichShouldToggle (cells) {
 };
 
 function evaluateLivingCells (cells) {
-  // get living cells
+                             // get living cells
   const checkedLivingCells = cells.filter(cell => cell.living)
   .map(cell => {
                             // get their neighbors
@@ -46,9 +46,9 @@ function evaluateLivingCells (cells) {
 }
 
 function evaluateDeadCells (cells) {
-  // get living cells
+                           // get living cells
   const checkedDeadCells = cells.filter(cell => cell.living)
-  // get the living cells' neighbors
+  // gather/flatten the living cells' neighbors
   .reduce((acc, cell) => acc.concat(getNeighbors(cell, cells)), [])
   // get only the dead neighbors
   .filter(cell => !cell.living)
