@@ -1,6 +1,7 @@
 import test from 'ava';
-import {getNeighbors, isNeighborCell} from '../../src/client/lifeHelpers/neighbors';
+import countLivingNeighbors, {getNeighbors, isNeighborCell} from '../../src/client/lifeHelpers/neighbors';
 import {block} from './patterns/stillLifes';
+import {twoPeriodBlinker} from './patterns/oscillators';
 
 export default () => {
   test('isNeighborCell should return false if potentialNeighbor is home cell', t => {
@@ -25,5 +26,27 @@ export default () => {
     const cells = block(true).cells;
     let neighbors = getNeighbors(cells[0], cells);
     t.deepEqual(neighbors, [cells[1], cells[2], cells[3]]);
+  });
+
+  test('countLivingNeighbors should throw if no array is passed', t => {
+    t.throws(countLivingNeighbors);
+  });
+
+  test('countLivingNeighbors should return a number (0)', t => {
+    const count = countLivingNeighbors({}, []);
+    t.is(typeof count, 'number');
+    t.is(count, 0);
+  });
+
+  test('countLivingNeighbors should find 3 living neighbors for a block', t => {
+    const cells = block(false).cells;
+    const count = countLivingNeighbors(cells[0], cells);
+    t.is(count, 3);
+  });
+
+  test('countLivingNeighbors should find 2 living neighbors for an oscillator', t => {
+    const cells = twoPeriodBlinker().cells;
+    const count = countLivingNeighbors(cells[1], cells);
+    t.is(count, 2);
   });
 };
