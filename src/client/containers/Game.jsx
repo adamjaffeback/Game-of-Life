@@ -1,7 +1,7 @@
 import React, {useState, useReducer} from 'react';
 import Board from '../components/Board';
 import Cell from '../classes/Cell';
-import generate from '../lifeHelpers';
+import gameReducer from '../reducers/gameReducer';
 
 export default function Game() {
   const CELL_SURFACE_AREA = 225;
@@ -13,25 +13,7 @@ export default function Game() {
     initialCells.push(new Cell(i));
   }
 
-  function reducer(state = [], action) {
-    switch (action.type) {
-      case 'TOOGLE_LIVING':
-        return state.map(cell => {
-          if (cell.identity === action.identity) {
-            const newCell = new Cell(cell.identity, cell.living);
-            newCell.click();
-            return newCell;
-          }
-
-          return cell;
-        });
-      case 'GENERATE':
-        return generate(state);
-      default:
-        throw new Error();
-    }
-  }
-  const [state, dispatch] = useReducer(reducer, initialCells);
+  const [state, dispatch] = useReducer(gameReducer, initialCells);
   const [interval, updateInterval] = useState();
 
   const handleCellClick = identity => dispatch({type: 'TOOGLE_LIVING', identity});
