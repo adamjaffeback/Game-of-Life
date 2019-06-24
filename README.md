@@ -2,11 +2,38 @@
 
 My implementation of Conway's Game of Life. Thanks to [Retrium](https://github.com/Retrium/dev-candidate) for the challenge.
 
+## Setup
+
+### Prerequisites
+
+- Install Node.js 10.13.0 (with npm)
+- An internet connection
+- Updated Chrome browser
+
+### Start
+
+1. Clone the repo to your computer: `git clone https://github.com/adamjaffeback/Game-of-Life.git`
+1. Move into the repo: `cd Game-of-Life/`
+1. `npm install`
+1. `npm start`
+1. Open [http://localhost:8080/](http://localhost:8080/)
+
+### Gameplay
+
+Click on a couple of cells, anywhere. They should highlight. Click the Step or Start button in the top-left corner of the screen. Based on the rules of the game (see Conway's Game of Life section below), the cells will appear and disappear with subsequent generations.
+
+Take a look at some of the [patterns](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns) and draw them in the application.
+
 ## Conway's Game of Life
 
 John Conway was interested in a problem presented in the 1940s by renowned mathematician John von Neumann, who tried to find a hypothetical machine that could build copies of itself. He succeeded when he found a mathematical model for such a machine with very complicated rules on a rectangular grid. The Game of Life emerged in 1970 as Conway's successful attempt to simplify von Neumann's ideas.
 
-What is so fascinating and enduring about Conway's game is the incredible range of emergent patterns that can result from a simple set of initial conditions. The game is "played" (though there are no actual players) on an infinite two-dimensional grid, where each cell may be in one of two possible states: _alive_ or _dead_. The mechanics of the game are fully described by four simple rules:
+What is so fascinating and enduring about Conway's game is the incredible range of emergent patterns that can result from a simple set of initial conditions. The game is "played" (though there are no actual players) on an infinite two-dimensional grid, where each cell may be in one of two possible states: _alive_ or _dead_.
+
+
+### Rules
+
+The mechanics of the game are fully described by four simple rules:
 
 - Any live cell with fewer than two live neighbors dies (underpopulation)
 - Any live cell with two or three live neighbors lives on to the next generation
