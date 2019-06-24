@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Cell from './Cell';
 
-export default function Board({cells, onCellClick}) {
+export default function Board ({cells, onCellClick}) {
   const cellComponents = cells.map(cell =>
     <Cell
       key={cell.identity}

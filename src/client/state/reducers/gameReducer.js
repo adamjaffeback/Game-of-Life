@@ -1,7 +1,7 @@
 import Cell from '../../classes/Cell';
 import generate from '../../lifeHelpers';
 
-export default function reducer(state = [], action) {
+export default function reducer (state = [], action) {
   switch (action.type) {
     case 'TOGGLE_LIVING':
       return state.map(cell => {

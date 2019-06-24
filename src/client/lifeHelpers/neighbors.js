@@ -1,4 +1,4 @@
-export function isNeighborCell(home, potentialNeighbor) {
+export function isNeighborCell (home, potentialNeighbor) {
   if (home.identity === potentialNeighbor.identity) {
     return false;
   } else {
@@ -10,7 +10,7 @@ export function isNeighborCell(home, potentialNeighbor) {
   }
 }
 
-export function getNeighbors(home, cells) {
+export function getNeighbors (home, cells) {
   const CELL_COUNT = cells.length;
   const neighbors = [];
 
@@ -25,7 +25,7 @@ export function getNeighbors(home, cells) {
   return neighbors;
 };
 
-export default function countLivingNeighbors(home, cells) {
+export default function countLivingNeighbors (home, cells) {
   return getNeighbors(home, cells)
   .reduce((acc, neighbor) => {
     return neighbor.living ? acc + 1 : acc;

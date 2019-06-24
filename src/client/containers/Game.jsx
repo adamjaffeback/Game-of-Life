@@ -4,7 +4,7 @@ import Cell from '../classes/Cell';
 import gameReducer from '../state/reducers/gameReducer';
 import * as GameActions from '../state/actions/gameActions';
 
-export default function Game() {
+function createCellsToFitWindow () {
   const CELL_SURFACE_AREA = 225;
   const gameSurfaceArea = window.innerHeight * window.innerWidth;
   const numCellsToFill = gameSurfaceArea / CELL_SURFACE_AREA;
@@ -14,7 +14,11 @@ export default function Game() {
     initialCells.push(new Cell(i));
   }
 
-  const [state, dispatch] = useReducer(gameReducer, initialCells);
+  return initialCells;
+};
+
+export default function Game () {
+  const [state, dispatch] = useReducer(gameReducer, createCellsToFitWindow());
   const [interval, updateInterval] = useState();
 
   const handleCellClick = identity => dispatch(GameActions.toggleLiving(identity));
