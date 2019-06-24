@@ -34,15 +34,7 @@ export default function Game() {
   const [state, dispatch] = useReducer(reducer, initialCells);
   const [interval, updateInterval] = useState();
 
-  const handleCellClick = identity => {
-    const message = {
-      type: 'TOOGLE_LIVING',
-      identity,
-    };
-
-    dispatch(message);
-  };
-
+  const handleCellClick = identity => dispatch({type: 'TOOGLE_LIVING', identity});
   const dispatchGenerate = () => dispatch({type: 'GENERATE'});
   const startGeneration = () => updateInterval(setInterval(dispatchGenerate, 1000));
   const stopGeneration = () => updateInterval(clearInterval(interval));
